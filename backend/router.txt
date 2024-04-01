@@ -1,0 +1,68 @@
+// middleware
+router.use((req,res,next)=>{
+     //always execute (if first param is not defined)
+     // can manipulate request
+     req.aboutUsContent ="data here";
+     // respond to client
+     //res.end("session and execution ends here")
+     // can call next middleware as:
+     next();
+
+})
+
+// in which case we use middleware?
+let checkLoggedIn =(req,res,next)=>{
+     let loggedIn=true;
+     if(loggedIn){
+          next()
+     }
+     else{
+          res.status(401).json({
+               result:null,
+               msg : "Not LoggenIn",
+               meta: null
+          })
+     }
+}
+
+// get method route and adding extra parameter next it will be middleware func.
+router.get('/',(request,response,next)=>{
+     response.json({
+          result:"hello",
+          msg:"success1",
+          meta: null
+     })
+})
+
+// post method routes and adding next it will be middleware
+router.post('/about',checkLoggedIn,(req,res,next)=>{ // checkloggedin func call first then callback is called
+     let aboutUs =req.aboutUsContent;
+     res.json({
+          result:"helloworld",
+           msg:"success2", 
+           meta: null
+     })
+})
+
+// if anybody calls '/about' url in get and other methods then it goes to below func
+// methods not allowed case: it is the case of 404 also so we can receive simultaneously so we send this 
+// to 404 http response status code 
+
+// router.use('/about',(req,res,next)=>{
+//      res.status(405).json({
+//           result:null,
+//           msg: ""
+//      })
+// })
+    
+// get method route
+router.get('/user/detail',(req,res)=>{
+     //
+})
+router.get('/user/:userId',(req,res)=>{
+
+     let userId= req.params.userId;
+     let query =req.query;
+     // let query =req.query.varName; // to access varaible name of query after ? mark
+
+})
