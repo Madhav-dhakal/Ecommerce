@@ -25,8 +25,10 @@
        -transactions
 
 ## Folder Architecture
-- MVC
-a. Modular
+-Mvc
+
+    a. Modular
+
        src/
           app/
              auth/ 
