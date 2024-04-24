@@ -15,14 +15,14 @@
      - offers
   
    ## CMS (content management system)
-     -banner crud
-     -category crud
-     -brand crud
-     -user crud
-     -products crud
-     -order view 
-     -offers crud
-     -transactions
+       -banner crud
+       -category crud
+       -brand crud
+       -user crud
+       -products crud
+       -order view 
+       -offers crud
+       -transactions
    
 ## Technologies Used
 ### FrontEnd: HTML,CSS,JavaScript,ReactJS,Bootstrap,React-Bootstrap
